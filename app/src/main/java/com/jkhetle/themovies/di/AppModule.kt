@@ -2,8 +2,12 @@ package com.jkhetle.themovies.di
 
 import com.jkhetle.themovies.data.AppConstants
 import com.jkhetle.themovies.data.api.ApiService
+import com.jkhetle.themovies.data.datasource.MovieDetailsDataSource
+import com.jkhetle.themovies.data.datasource.MovieDetailsDataSourceImpl
 import com.jkhetle.themovies.data.datasource.PopularMoviesDataSource
 import com.jkhetle.themovies.data.datasource.PopularMoviesDataSourceImpl
+import com.jkhetle.themovies.ui.repository.MovieDetailsRepository
+import com.jkhetle.themovies.ui.repository.MovieDetailsRepositoryImpl
 import com.jkhetle.themovies.ui.repository.PopularMoviesRepositoryImpl
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -64,5 +68,17 @@ class AppModule {
     @Singleton
     fun providesPopularMoviesRepository(popularMoviesDataSource: PopularMoviesDataSource): PopularMoviesRepositoryImpl {
         return PopularMoviesRepositoryImpl(popularMoviesDataSource)
+    }
+
+    @Provides
+    @Singleton
+    fun provideMovieDetailsDataSource(apiService: ApiService): MovieDetailsDataSource {
+        return MovieDetailsDataSourceImpl(apiService)
+    }
+
+    @Provides
+    @Singleton
+    fun provideMovieDetailsRepository(movieDetailsDataSource: MovieDetailsDataSource): MovieDetailsRepository {
+        return MovieDetailsRepositoryImpl(movieDetailsDataSource)
     }
 }

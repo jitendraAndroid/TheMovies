@@ -6,6 +6,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -15,7 +16,10 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Snackbar
 import androidx.compose.material3.SnackbarHost
@@ -176,4 +180,98 @@ fun RegistrationError(hostState: SnackbarHostState, message: String) {
         }
     }
 
+}
+
+@Composable
+fun BackdropImageComponent(backdropPath: String) {
+    val imageUri =
+        AppConstants.IMAGE_BASE_URL + AppConstants.default_config + backdropPath
+
+    val model = ImageRequest.Builder(LocalContext.current)
+        .data(imageUri)
+        .size(Size.ORIGINAL)
+        .scale(Scale.FIT)
+        .crossfade(true)
+        .build()
+
+    val painter = rememberAsyncImagePainter(model)
+
+    Image(
+        modifier = Modifier
+            .padding(bottom = 5.dp)
+            .fillMaxWidth()
+            .shadow(10.dp, clip = false, shape = RoundedCornerShape(10.dp))
+            .clip(shape = RoundedCornerShape(0.dp, 0.dp, 10.dp, 10.dp)),
+        painter = painter,
+        contentDescription = null,
+        contentScale = ContentScale.FillWidth,
+    )
+}
+
+@Preview
+@Composable
+fun BackdropImageComponentPreview() {
+    BackdropImageComponent("/t5zCBSB5xMDKcDqe91qahCOUYVV.jpg")
+}
+
+@Composable
+fun HeadingTextComponent(value: String, modifier: Modifier = Modifier) {
+    Text(
+        text = value,
+        fontWeight = FontWeight.Bold,
+        fontSize = 18.sp,
+        modifier = modifier,
+    )
+}
+
+@Preview
+@Composable
+fun HeadingTextComponentPreview() {
+    HeadingTextComponent("X men")
+}
+
+@Composable
+fun SubHeadingTextComponent(value: String, modifier: Modifier = Modifier) {
+    Text(
+        text = value,
+        fontSize = 15.sp,
+        modifier = modifier.padding(top = 5.dp),
+    )
+}
+
+@Preview
+@Composable
+fun SubHeadingTextComponentPreview() {
+    SubHeadingTextComponent("X men")
+}
+
+@Composable
+fun VoteComponent(value: Double) {
+    Row(
+        modifier = Modifier.padding(top = 5.dp),
+        verticalAlignment = Alignment.Bottom,
+    ) {
+        Icon(
+            imageVector = Icons.Filled.Star,
+            contentDescription = null,
+            tint = Color.Black,
+            modifier = Modifier.alignByBaseline(),
+        )
+        val vote = "%.2f".format(value)
+        SubHeadingTextComponent(value = ": $vote/10")
+    }
+}
+
+@Preview
+@Composable
+fun VoteComponentPreview() {
+    VoteComponent(5.478)
+}
+
+@Composable
+fun MovieDetailText(value: String) {
+    Text(
+        text = value,
+        modifier = Modifier.padding(top = 5.dp),
+    )
 }
