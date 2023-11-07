@@ -50,6 +50,8 @@ object Dependencies {
     val coroutinesTesting by lazy {"org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutineTesting}"}
     val mockitoKotlin by lazy {"com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.mockitoKotlin}"}
 
+    val composeUITestManifest by lazy {"androidx.compose.ui:ui-test-manifest"}
+    val composeUIjUnit by lazy {"androidx.compose.ui:ui-test-junit4"}
     val espressoCore by lazy {"androidx.test.espresso:espresso-core:${Versions.espressoCore}"}
 }
 
