@@ -1,0 +1,3 @@
+/Users/jitendra.khetle/Documents/jkhetle/TheMovies/app/.cxx/Debug/1fpk56x1/x86/CMakeFiles/native-lib.dir
+/Users/jitendra.khetle/Documents/jkhetle/TheMovies/app/.cxx/Debug/1fpk56x1/x86/CMakeFiles/edit_cache.dir
+/Users/jitendra.khetle/Documents/jkhetle/TheMovies/app/.cxx/Debug/1fpk56x1/x86/CMakeFiles/rebuild_cache.dir
