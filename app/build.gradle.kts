@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -61,6 +63,7 @@ android {
 
 dependencies {
 
+    // Default dependencies
     implementation(Dependencies.coreKtx)
     implementation(Dependencies.lifecycleRuntimeKtx)
     implementation(Dependencies.compose)
@@ -69,6 +72,7 @@ dependencies {
     implementation(Dependencies.composeUIGraphics)
     implementation(Dependencies.composeUIToolingPreview)
     implementation(Dependencies.material3)
+    implementation(project(Modules.utilities))
 
     testImplementation(Dependencies.junit)
     androidTestImplementation(Dependencies.junitExt)
@@ -77,4 +81,31 @@ dependencies {
     androidTestImplementation(Dependencies.composeUIjUnit)
     debugImplementation(Dependencies.composeUITooling)
     debugImplementation(Dependencies.composeUITestManifest)
+
+    // retrofit dependencies
+    implementation(Dependencies.retrofit)
+    implementation(Dependencies.okhttp)
+    implementation(Dependencies.gsonConverter)
+    implementation(Dependencies.moshi)
+    implementation(Dependencies.moshiConverter)
+    implementation(Dependencies.loggingInterceptor)
+
+    // Hilt dependencies
+    implementation(Dependencies.hiltAndroid)
+    kapt(Dependencies.hiltAndroidCompiler)
+    kapt(Dependencies.hiltCompiler)
+    kaptAndroidTest(Dependencies.hiltAndroidCompiler)
+    implementation(Dependencies.hiltNavigationCompose)
+
+    //UI beautification
+    debugImplementation(Dependencies.composeUITooling)
+    implementation(Dependencies.composeUIGraphics)
+    implementation(Dependencies.material3)
+    implementation(Dependencies.navigationCompose)
+
+    implementation(Dependencies.coilImageLoader)
+    implementation(Dependencies.materialIcon)
+}
+kapt {
+    correctErrorTypes = true
 }
