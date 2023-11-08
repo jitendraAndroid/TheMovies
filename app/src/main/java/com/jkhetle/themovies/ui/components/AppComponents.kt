@@ -70,9 +70,10 @@ fun PopularMovieImageList(navController: NavController, response: PopularMoviesR
     Column {
         Text(
             text = stringResource(id = R.string.top_ten),
+            color = MaterialTheme.colorScheme.onPrimary,
             modifier = Modifier
                 .fillMaxWidth()
-                .background(Color.LightGray)
+                .background(MaterialTheme.colorScheme.primary)
                 .padding(vertical = 5.dp),
             textAlign = TextAlign.Center,
             fontSize = 18.sp,
