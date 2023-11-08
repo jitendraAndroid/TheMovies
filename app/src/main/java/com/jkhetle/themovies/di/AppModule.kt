@@ -6,7 +6,7 @@ import com.jkhetle.themovies.data.datasource.MovieDetailsDataSource
 import com.jkhetle.themovies.data.datasource.MovieDetailsDataSourceImpl
 import com.jkhetle.themovies.data.datasource.PopularMoviesDataSource
 import com.jkhetle.themovies.data.datasource.PopularMoviesDataSourceImpl
-import com.jkhetle.themovies.ui.repository.MovieDetailsRepository
+import com.jkhetle.themovies.data.repository.MovieDetailsRepository
 import com.jkhetle.themovies.ui.repository.MovieDetailsRepositoryImpl
 import com.jkhetle.themovies.ui.repository.PopularMoviesRepositoryImpl
 import com.squareup.moshi.Moshi

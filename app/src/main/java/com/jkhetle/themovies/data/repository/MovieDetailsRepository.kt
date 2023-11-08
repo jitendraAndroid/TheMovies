@@ -1,4 +1,4 @@
-package com.jkhetle.themovies.ui.repository
+package com.jkhetle.themovies.data.repository
 
 import com.jkhetle.themovies.data.entity.MovieDetailsResponse
 import com.jkhetle.utilities.ResourceState

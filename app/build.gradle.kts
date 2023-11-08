@@ -97,7 +97,7 @@ dependencies {
     kaptAndroidTest(Dependencies.hiltAndroidCompiler)
     implementation(Dependencies.hiltNavigationCompose)
 
-    //UI beautification
+    // UI beautification
     debugImplementation(Dependencies.composeUITooling)
     implementation(Dependencies.composeUIGraphics)
     implementation(Dependencies.material3)
