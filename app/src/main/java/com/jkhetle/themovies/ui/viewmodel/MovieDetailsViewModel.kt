@@ -3,7 +3,7 @@ package com.jkhetle.themovies.ui.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jkhetle.themovies.data.entity.MovieDetailsResponse
-import com.jkhetle.themovies.data.repository.MovieDetailsRepository
+import com.jkhetle.themovies.ui.repository.MovieDetailsRepository
 import com.jkhetle.utilities.ResourceState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
